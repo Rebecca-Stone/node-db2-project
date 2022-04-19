@@ -11,9 +11,13 @@ const getAll = () => {
 }
 
 //   - `getById` resolves to a car record by the given id
-const getById = (id) => {
+function getById(id){
   // DO YOUR MAGIC
   return db('cars').where('id', id).first();
+}
+
+function getByVin(vin){
+  return db("cars").where("vin", vin).first();
 }
 
 //   - `create` resolves to the newly created car record
@@ -26,5 +30,6 @@ async function create(car) {
 module.exports = {
   getAll,
   getById,
+  getByVin,
   create
 }
