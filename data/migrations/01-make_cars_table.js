@@ -1,26 +1,15 @@
-// #### Cars Schema
-
 exports.up = function (knex) {
-  // DO YOUR MAGIC
-  return knex.schema.createTable('cars', tbl => {
-    // id 
+  return knex.schema.createTable("cars", (tbl) => {
     tbl.increments();
-    // vin            string    required, unique
-    tbl.string('vin').notNullable().unique();
-    // make           string    required
-    tbl.string('make').notNullable();
-    // model          string    required
-    tbl.string('model').notNullable();
-    // mileage        numeric   required
+    tbl.string("vin").notNullable().unique();
+    tbl.string("make").notNullable();
+    tbl.string("model").notNullable();
     tbl.integer("mileage").notNullable();
-    // title          string    optional
-    tbl.string('title');
-    // transmission   string    optional
-    tbl.string('transmission');
-  })
+    tbl.string("title");
+    tbl.string("transmission");
+  });
 };
 
 exports.down = function (knex) {
-  // DO YOUR MAGIC
-  return knex.schema.dropTableIfExists('cars');
+  return knex.schema.dropTableIfExists("cars");
 };
